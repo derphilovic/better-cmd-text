@@ -1,21 +1,18 @@
 lines = ["","","","","",""]
 editedLine = 0
-header = "HHEAD"
+header = "BECHAD"
 #arrays of doom
-A = ["    _    ","   / \   ","  / _ \  "," / ___ \ ","/_/   \_\\",""]
-D = [" ____  ","|  _ \ ","| | | |","| |_| |","|____/ ",""]
+A = ["    _    ","   / \\   ","  / _ \\  "," / ___ \\ ","/_/   \\_\\",""]
+B = [" ____  ","| __ ) ","|  _ \\ ","| |_) |","|____/ ",""]
+C = ["  ____ "," / ___|","| |    ","| |___ "," \\____|",""]
+D = [" ____  ","|  _ \\ ","| | | |","| |_| |","|____/ ",""]
 E = [" _____ ","| ____|","|  _|  ","| |___ ","|_____|",""]
 H = [" _   _ ","| | | |","| |_| |","|  _  |","|_| |_|",""]
-#main loop
-while editedLine != 5:
+#main loop - optimized
+letter_map = {"H": H, "A": A, "E": E, "D": D, "B" : B, "C" : C}
+
+for editedLine in range(5):
     for letter in header:
-            if letter == "H":
-                lines[editedLine] += H[editedLine]
-            elif letter == "A":
-                lines[editedLine] += A[editedLine]
-            elif letter == "E":
-                lines[editedLine] += E[editedLine]
-            elif letter == "D":
-                lines[editedLine] += D[editedLine]
+        if letter in letter_map:
+            lines[editedLine] += letter_map[letter][editedLine]
     print(lines[editedLine])
-    editedLine += 1
