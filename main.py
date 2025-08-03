@@ -1,6 +1,5 @@
 lines = ["","","","","",""]
 editedLine = 0
-header = str(input("Header: "))
 #arrays of doom
 Space  = ["   ","   ","   ","   ","   ","   "]
 A = ["    _    ","   / \\   ","  / _ \\  "," / ___ \\ ","/_/   \\_\\","         "]
@@ -85,10 +84,38 @@ letter_map = {
     ".": dot, ":": ddot, "-": dash, "#": hashtag,
     "0": a0, "1": a1, "2": a2, "3": a3, "4": a4, "5": a5, "6": a6, "7": a7, "8": a8, "9": a9
 }
+def header(header):
+    for editedLine in range(6):
+        for letter in header:
+            if letter in letter_map:
+                lines[editedLine] += letter_map[letter][editedLine]
+        print(lines[editedLine])
 
+def typefile(v):
+    print(f"File valid {v}")
 
-for editedLine in range(6):
-    for letter in header:
-        if letter in letter_map:
-            lines[editedLine] += letter_map[letter][editedLine]
-    print(lines[editedLine])
+def textblock(value):
+    print(value)
+
+function_map = {
+    "typefile": typefile,
+    "header": header,
+    "textblock": textblock
+}
+
+import os
+
+file = input("Document to open: ")
+
+with open(file, "r", encoding="utf-8") as f:
+    for line in f:
+        line = line.strip()
+        if line.startswith("{") and line.endswith("}."):
+            content = line[1:-2]
+            if " : " in content:
+                header_name, value = content.split(" : ", 1)
+                func = function_map.get(header_name)
+                if func:
+                    func(value)
+                else:
+                    print(f"{header_name}: {value}")
