@@ -1,3 +1,64 @@
-{typefile : pdat}.
-{header : Text}.
-{textblock : If text is text, then text is text}.
+{header : Easy Python-Docs}.
+{textblock : Built-in Functions}.
+{empty : 1}.
+{textblock : 1. print()}.
+{textblock : Outputs data to the console}.
+{textblock : Example: print("Hello, World!")}.
+{empty : 1}.
+{textblock : 2. len()}.
+{textblock : Returns the number of items in an object}.
+{textblock : Example: len([1, 2, 3]) → 3}.
+{empty : 1}.
+{textblock : 3. type()}.
+{textblock : Returns the type of an object}.
+{textblock : Example: type("hello") → <class 'str'>}.
+{empty : 1}.
+{textblock : 4. range()}.
+{textblock : Returns a sequence of numbers}.
+{textblock : Example: for i in range(3): print(i) → 0,1,2}.
+{empty : 1}.
+{textblock : 5. input()}.
+{textblock : Reads input from the user}.
+{textblock : Example: name = input("Enter your name: ")}.
+{empty : 1}.
+{textblock : 6. int(), float(), str()}.
+{textblock : Type conversion functions}.
+{textblock : Example: int("10") → 10, float("3.14") → 3.14, str(42) → "42"}.
+{empty : 1}.
+{textblock : 7. sum()}.
+{textblock : Returns the sum of all items in an iterable}.
+{textblock : Example: sum([1, 2, 3]) → 6}.
+{empty : 1}.
+{textblock : 8. max(), min()}.
+{textblock : Returns the largest/smallest item in an iterable}.
+{textblock : Example: max([1, 5, 3]) → 5, min([1, 5, 3]) → 1}.
+{empty : 1}.
+{textblock : 9. sorted()}.
+{textblock : Returns a sorted list of an iterable}.
+{textblock : Example: sorted([3, 1, 2]) → [1, 2, 3]}.
+{empty : 1}.
+{textblock : 10. zip()}.
+{textblock : Combines multiple iterables element-wise}.
+{textblock : Example: list(zip([1, 2], ['a', 'b'])) → [(1, 'a'), (2, 'b')]}.
+{empty : 1}.
+{textblock : 11. map(), filter()}.
+{textblock : Applies or filters elements using a function}.
+{textblock : Example: map(str.upper, ['a', 'b']) → ['A', 'B']}.
+{textblock : Example: filter(lambda x: x > 2, [1, 2, 3]) → [3]}.
+{empty : 1}.
+{textblock : 12. enumerate()}.
+{textblock : Adds an index to an iterable}.
+{textblock : Example: for idx, val in enumerate(['a', 'b']): → 0 a \n 1 b}.
+{empty : 1}.
+{textblock : 13. open()}.
+{textblock : Opens a file for reading or writing}.
+{textblock : Example: with open("file.txt", "r") as f: content = f.read()}.
+{empty : 1}.
+{textblock : 14. isinstance()}.
+{textblock : Checks if an object is of a given type}.
+{textblock : Example: isinstance(5, int) → True}.
+{empty : 1}.
+{textblock : 15. help()}.
+{textblock : Displays the documentation of an object}.
+{textblock : Example: help(str)}.
+{empty : 1}.

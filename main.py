@@ -96,11 +96,14 @@ def typefile(v):
 
 def textblock(value):
     print(value)
+def empty(v):
+    print("")
 
 function_map = {
     "typefile": typefile,
     "header": header,
-    "textblock": textblock
+    "textblock": textblock,
+    "empty": empty
 }
 
 import os
