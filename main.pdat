@@ -62,3 +62,4 @@
 {textblock : Displays the documentation of an object}.
 {textblock : Example: help(str)}.
 {empty : 1}.
+{header : stoobid idiot}.

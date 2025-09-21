@@ -120,5 +120,6 @@ with open(file, "r", encoding="utf-8") as f:
                 func = function_map.get(header_name)
                 if func:
                     func(value)
+                    lines = ["","","","","",""]
                 else:
                     print(f"{header_name}: {value}")
