@@ -99,7 +99,11 @@ def textblock(value):
     print(value)
     
 def empty(v):
-    print("")
+    v = int(v)
+    a = 0
+    while a < v:
+        print("")
+        a = a + 1
     
 def color(value):
     col, txt = value.split(';', 1)
