@@ -1,3 +1,4 @@
+from sty import fg, bg, ef, rs
 lines = ["","","","","",""]
 editedLine = 0
 #arrays of doom
@@ -98,17 +99,20 @@ def textblock(value):
     print(value)
 def empty(v):
     print("")
-
+def blue(value):
+    v = fg.blue + value + fg.rs
+    print(v)
 function_map = {
     "typefile": typefile,
     "header": header,
     "textblock": textblock,
-    "empty": empty
+    "empty": empty,
+    "blue": blue
 }
 
 import os
 
-file = input("Document to open: ")
+file = "main.pdat" #input("Document to open: ")
 
 with open(file, "r", encoding="utf-8") as f:
     for line in f:
