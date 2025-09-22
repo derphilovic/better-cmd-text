@@ -102,13 +102,15 @@ def empty(v):
     print("")
     
 def color(value):
-    col, txt = value.split(";", 1)
+    col, txt = value.split(';', 1)
     col = col.strip()
-    if col = 'blue'
-        v = fg.blue + value + fg.r
-    if isnumeric(col) == True:
-        v = fg(col) + valie + fg.rs
-        
+    col = col.removeprefix(";")
+    v = ""
+    if col.isnumeric() == True:
+        col = int(col)
+        v = fg(col) + txt + fg.rs
+    else:
+        print(fg.red + "The choosen color is not supported!" + fg.rs)
     print(v)
     
 function_map = {
