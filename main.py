@@ -105,8 +105,9 @@ def color(value):
     col, txt = value.split(";", 1)
     col = col.strip()
     if col = 'blue'
-        v = fg.blue + value + fg.rs
+        v = fg.blue + value + fg.r
     if isnumeric(col) == True:
+        v = fg(col) + valie + fg.rs
         
     print(v)
     
@@ -115,7 +116,7 @@ function_map = {
     "header": header,
     "textblock": textblock,
     "empty": empty,
-    "blue": blue
+    "color": color
 }
 
 import os
