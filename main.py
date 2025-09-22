@@ -1,4 +1,5 @@
 from sty import fg, bg, ef, rs
+global lines
 lines = ["","","","","",""]
 editedLine = 0
 #arrays of doom
@@ -128,8 +129,8 @@ function_map = {
 import os
 
 file = "main.pdat" #input("Document to open: ")
-
-with open(file, "r", encoding="utf-8") as f:
+def beautify(file):
+  with open(file, "r", encoding="utf-8") as f:
     for line in f:
         line = line.strip()
         if line.startswith("{") and line.endswith("}."):
@@ -139,6 +140,9 @@ with open(file, "r", encoding="utf-8") as f:
                 func = function_map.get(header_name)
                 if func:
                     func(value)
+                    global lines
                     lines = ["","","","","",""]
                 else:
                     print(f"{header_name}: {value}")
+                    lines = ["","","","","",""]
+beautify(file)
