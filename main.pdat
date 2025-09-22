@@ -1,35 +1,5 @@
 {header : Easy Python-Docs}.
 {textblock : Built-in Functions}.
 {empty : 1}.
-{textblock : 1. print()}.
-{textblock : Outputs data to the console}.
-{textblock : Example: print("Hello, World!")}.
-{empty : 1}.
-{textblock : 2. len()}.
-{textblock : Returns the number of items in an object}.
-{textblock : Example: len([1, 2, 3]) → 3}.
-{empty : 1}.
-{textblock : 3. type()}.
-{textblock : Returns the type of an object}.
-{textblock : Example: type("hello") → <class 'str'>}.
-{empty : 1}.
-{textblock : 4. range()}
-{textblock : Returns a sequence of numbers}
-{textblock : Example: for i in range(3): print(i) → 0,1,2}
-{empty : 1}
-{textblock : 5. input()}
-{textblock : Reads input from the user}
-{textblock : Example: name = input("Enter your name: ")}
-{empty : 1}
-{textblock : 6. int(), float(), str()}
-{textblock : Type conversion functions}
-{textblock : Example: int("10") → 10, float("3.14") → 3.14, str(42) → "42"}
-{empty : 1}
-{textblock : 7. sum()}
-{textblock : Returns the sum of all items in an iterable}
-{textblock : Example: sum([1, 2, 3]) → 6}
-{empty : 1}
-{textblock : 8. max(), min()}
-{textblock : Returns the largest/smallest it)
 {header : stoobid idiot}.
 {blue : this text is blue}.
