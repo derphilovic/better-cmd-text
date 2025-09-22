@@ -97,11 +97,19 @@ def typefile(v):
 
 def textblock(value):
     print(value)
+    
 def empty(v):
     print("")
-def blue(value):
-    v = fg.blue + value + fg.rs
+    
+def color(value):
+    col, txt = value.split(";", 1)
+    col = col.strip()
+    if col = 'blue'
+        v = fg.blue + value + fg.rs
+    if isnumeric(col) == True:
+        
     print(v)
+    
 function_map = {
     "typefile": typefile,
     "header": header,
