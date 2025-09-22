@@ -10,4 +10,5 @@ authors = [{ name = "Philipp Vukovic", email = "philovic@outlook.de" }]
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.8"
-dependencies = [sty]
+dependencies = [
+    "sty>=1.0.0",]

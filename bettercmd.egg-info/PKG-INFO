@@ -1,0 +1,63 @@
+Metadata-Version: 2.4
+Name: bettercmd
+Version: 0.1.0
+Summary: Better CMD text utilities, uses the pdat file format
+Author-email: Philipp Vukovic <philovic@outlook.de>
+License: MIT License
+        
+        Copyright (c) 2025 Philipp Vukovic
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+        
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: sty>=1.0.0
+Dynamic: license-file
+
+# bettercmd
+
+Better CMD Text utilities for Python.
+
+## Installation
+
+```bash
+pip install bettercmd
+```
+## Usage
+How to use bettercmd:
+```python
+#import the module
+import bettercmd as bcm
+#run the function with the wanted .pdat file
+bcm.beautify('test.pdat')
+```
+### PDAT file syntax
+```bash
+#every line starts with { and ends with }.
+{header : Hello Guys!}.
+#the first word is the type of word/line,
+#the : is the seperation and everything after that is the output
+{empty : 1}.
+#is an empty line if the number is 1 it is one empty line
+#if the number is 2 it is 2 empty lines and so on
+{color : 161 ; this text is red}.
+#makes a colored line with the specified 8bit color
+{textblock : hallo welt}.
+#its just a simple line of text

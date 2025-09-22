@@ -1,4 +1,5 @@
 from sty import fg, bg, ef, rs
+import inspect
 global lines
 lines = ["","","","","",""]
 editedLine = 0
@@ -128,21 +129,36 @@ function_map = {
 
 import os
 
-file = "main.pdat" #input("Document to open: ")
-def beautify(file):
-  with open(file, "r", encoding="utf-8") as f:
-    for line in f:
-        line = line.strip()
-        if line.startswith("{") and line.endswith("}."):
-            content = line[1:-2]
-            if " : " in content:
-                header_name, value = content.split(" : ", 1)
-                func = function_map.get(header_name)
-                if func:
-                    func(value)
-                    global lines
-                    lines = ["","","","","",""]
-                else:
-                    print(f"{header_name}: {value}")
-                    lines = ["","","","","",""]
-beautify(file)
+
+def beautify(file_path):
+    """
+    Beautify a .pdat file.
+    If file_path is relative, resolve it relative to the calling script.
+    """
+    global lines
+
+    # get the path of the calling script
+    caller_file = inspect.stack()[1].filename
+    caller_dir = os.path.dirname(os.path.abspath(caller_file))
+
+    # resolve relative path from caller script's folder
+    if not os.path.isabs(file_path):
+        file_path = os.path.join(caller_dir, file_path)
+
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"File not found: {file_path}")
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line.startswith("{") and line.endswith("}."):
+                content = line[1:-2]
+                if " : " in content:
+                    header_name, value = content.split(" : ", 1)
+                    func = function_map.get(header_name)
+                    if func:
+                        func(value)
+                        lines = ["", "", "", "", "", ""]
+                    else:
+                        print(f"{header_name}: {value}")
+                        lines = ["", "", "", "", "", ""]
