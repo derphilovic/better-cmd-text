@@ -14,6 +14,13 @@ How to use bettercmd:
 import bettercmd as bcm
 #run the function with the wanted .pdat file
 bcm.beautify('test.pdat')
+#you can also access the functions directly
+bcm.header("Heading")
+#this would make a header
+bcm.color("161;This text is ANTIFA")
+#this would make a red text, the number and ; are specifying the color
+bcm.empty(5)
+#this would make 5 empty lines, can be any positive integer
 ```
 ### PDAT file syntax
 ```bash
