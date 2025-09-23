@@ -8,11 +8,11 @@ Supports `.pdat` files for larger projects to keep your code clean.
 - 8-bit text coloring
 - Empty line spacing
 - `.pdat` file support (optional)
+- Background colors
+- 24-bit (truecolor) support
 
 Planned:
-- Background colors
 - Easier custom header fonts
-- 24-bit (truecolor) support
 - Progress bars
 - Centered text
 
@@ -35,6 +35,16 @@ cs.empty(2)
 
 # Print colored text (8-bit)
 cs.color("34;This is blue text")
+
+#Print colored text (24-bit or Hex)
+cs.rgbcolor("#FFD700", "I am an yellow text!")
+cs.rgbcolor((255, 215, 0), "I am an yellow text too!")
+
+#print text with colored background(8-bit)
+cs.background(161, "I have a red background!")
+
+#print colored text with colored background(8-bit, first fg, the bg)
+cs.bothcolors(161, 19, "I am a red text on a blue background!")
 
 # Load from a .pdat file
 cs.beautify("example.pdat")

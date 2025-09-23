@@ -26,7 +26,7 @@ R = [" ____  ","|  _ \\ ","| |_) |","|  _ < ","|_| \\_\\","       "]
 S = [" ____  ","/ ___| ","\\___ \\ "," ___) |","|____/ ","       "]
 T = [" _____ ","|_   _|","  | |  ","  | |  ","  |_|  ","       "]
 U = [" _   _ ","| | | |","| | | |","| |_| |"," \\___/ ","       "]
-V = ["__     __ ","\\ \\   / / "," \\ \\ / /  ","  \\ V /   ","   \\_/   ","          "       ]
+V = ["__     __ ","\\ \\   / / "," \\ \\ / /  ","  \\ V /   ","   \\_/    ","          "       ]
 W = ["__        __","\\ \\      / /"," \\ \\ /\\ / / ","  \\ V  V /  ","   \\_/\\_/   ","            "]
 X = ["__  __","\\ \\/ /"," \\  / "," /  \\ ","/_/\\_\\","      "]
 Y = ["__   __","\\ \\ / /"," \\ V / ","  | |  ","  |_|  ","       "]
@@ -87,6 +87,13 @@ letter_map = {
     ".": dot, ":": ddot, "-": dash, "#": hashtag,
     "0": a0, "1": a1, "2": a2, "3": a3, "4": a4, "5": a5, "6": a6, "7": a7, "8": a8, "9": a9
 }
+
+def hex_to_rgb(hex_color: str):
+    hex_color = hex_color.lstrip('#')
+    if len(hex_color) != 6:
+        raise ValueError("Hex color must be in format RRGGBB")
+    return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+
 def header(header):
     global lines
     lines = ["","","","","",""]
@@ -111,19 +118,46 @@ def empty(v):
     
 def color(col, txt):
     v = ""
-    v = fg(col) + txt + fg.rs
+    v = fg(col) + txt + rs.fg
+    print(v)
+
+def backgroundcolor(col, txt):
+    v = ""
+    v = bg(col) + txt + rs.bg
+    print(v)
+
+def allcolor(fgcol, bgcol, txt):
+    v = ""
+    v = fg(fgcol) + bg(bgcol) + txt + rs.all
+    print(v) 
+
+
+def realrgbcolor(color, text: str):
+    if isinstance(color, str):  # hex code
+        rgb = hex_to_rgb(color)
+        v = fg(*rgb) + text + rs.fg
+    elif isinstance(color, tuple) and len(color) == 3:  # rgb tuple
+        v = fg(*color) + text + rs.fg
+    else:
+        raise TypeError("Color must be a hex string or RGB tuple")
     print(v)
 
 def pdatcolor(value):
     col, txt = value.split(';', 1)
     col = col.strip()
-    col = col.removeprefix(";")
-    v = ""
-    if col.isnumeric() == True:
-        col = int(col)
-        v = fg(col) + txt + fg.rs
+    txt = txt.strip()
+
+    if col.isnumeric():
+        v = fg(int(col)) + txt + rs.fg
+    elif col.startswith("#"):  # hex
+        rgb = hex_to_rgb(col)
+        v = fg(*rgb) + txt + rs.fg
+    elif "," in col:  # rgb tuple as string
+        rgb = tuple(map(int, col.split(',')))
+        v = fg(*rgb) + txt + rs.fg
     else:
-        print(fg.red + "The choosen color is not supported!" + fg.rs)
+        print(fg.red + "Unsupported color format!" + rs.fg)
+        return
     print(v)
     
 function_map = {
