@@ -43,7 +43,7 @@ i = [" _ ","(_)","| |","| |","|_|","   "]
 j = ["   _ ","  (_)","  | |","  | |"," _/ |","|__/ "]
 k = [" _    ","| | __","| |/ /","|   < ","|_|\\_\\","      "]
 l = [" _ ","| |","| |","| |","|_|","   "]
-m = [""," _ __ ___  ","| '_ ` _ \\ ","| | | | | |","|_| |_| |_|","           "]
+m = ["           "," _ __ ___  ","| '_ ` _ \\ ","| | | | | |","|_| |_| |_|","           "]
 n = ["       "," _ __  ","| '_ \\ ","| | | |","|_| |_|","       "]
 o = ["       ","  ___  "," / _ \\ ","| (_) |"," \\___/ ","       "]
 p = ["       "," _ __  ","| '_ \\ ","| |_) |","| .__/ ","|_|    "]
@@ -88,6 +88,8 @@ letter_map = {
     "0": a0, "1": a1, "2": a2, "3": a3, "4": a4, "5": a5, "6": a6, "7": a7, "8": a8, "9": a9
 }
 def header(header):
+    global lines
+    lines = ["","","","","",""]
     for editedLine in range(6):
         for letter in header:
             if letter in letter_map:
@@ -107,7 +109,16 @@ def empty(v):
         print("")
         a = a + 1
     
-def color(value):
+def color(col, txt):
+    v = ""
+    if col.isnumeric() == True:
+        col = int(col)
+        v = fg(col) + txt + fg.rs
+    else:
+        print(fg.red + "The choosen color is not supported!" + fg.rs)
+    print(v)
+
+def pdatcolor(value):
     col, txt = value.split(';', 1)
     col = col.strip()
     col = col.removeprefix(";")
@@ -124,7 +135,7 @@ function_map = {
     "header": header,
     "textblock": textblock,
     "empty": empty,
-    "color": color
+    "color": pdatcolor
 }
 
 import os
@@ -157,6 +168,7 @@ def beautify(file_path):
                     header_name, value = content.split(" : ", 1)
                     func = function_map.get(header_name)
                     if func:
+                        lines = ["","","","","",""]
                         func(value)
                         lines = ["", "", "", "", "", ""]
                     else:
