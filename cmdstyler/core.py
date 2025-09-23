@@ -111,11 +111,7 @@ def empty(v):
     
 def color(col, txt):
     v = ""
-    if col.isnumeric() == True:
-        col = int(col)
-        v = fg(col) + txt + fg.rs
-    else:
-        print(fg.red + "The choosen color is not supported!" + fg.rs)
+    v = fg(col) + txt + fg.rs
     print(v)
 
 def pdatcolor(value):
