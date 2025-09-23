@@ -11,4 +11,4 @@ readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.8"
 dependencies = [
-    "sty>=1.0.0",]
+    "sty>=1.0.5",]
