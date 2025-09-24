@@ -4,6 +4,7 @@ Easily style your CMD/terminal output with headers, colors, and more.
 Supports `.pdat` files for larger projects to keep your code clean.
 
 ## ✨ Features
+
 - ASCII art headers
 - 8-bit text coloring
 - Empty line spacing
@@ -12,6 +13,7 @@ Supports `.pdat` files for larger projects to keep your code clean.
 - 24-bit (truecolor) support
 
 Planned:
+
 - Easier custom header fonts
 - Progress bars
 - Centered text
@@ -23,7 +25,9 @@ pip install cmdstyler
 ```
 
 ## Usage
+
 How to use cmdstyler:
+
 ```python
 import cmdstyler as cs
 
@@ -49,7 +53,9 @@ cs.bothcolors(161, 19, "I am a red text on a blue background!")
 # Load from a .pdat file
 cs.beautify("example.pdat")
 ```
+
 ### PDAT file syntax
+
 ```bash
 {header : Hello Guys!}.
 # The first word is the function name

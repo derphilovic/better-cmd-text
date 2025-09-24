@@ -11,7 +11,8 @@ readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.8"
 dependencies = [
-    "sty>=1.0.5",]
+    "sty>=1.0.5",
+    "pyfiglet>=1.0.4",]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",

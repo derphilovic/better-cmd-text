@@ -1,5 +1,6 @@
 from sty import fg, bg, ef, rs
 import inspect
+from pyfiglet import Figlet
 global lines
 lines = ["","","","","",""]
 editedLine = 0
@@ -94,7 +95,7 @@ def hex_to_rgb(hex_color: str):
         raise ValueError("Hex color must be in format RRGGBB")
     return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
 
-def header(header):
+def legacyheader(header):
     global lines
     lines = ["","","","","",""]
     for editedLine in range(6):
@@ -102,6 +103,19 @@ def header(header):
             if letter in letter_map:
                 lines[editedLine] += letter_map[letter][editedLine]
         print(lines[editedLine])
+
+def header(text: str, font: str = None):
+    if font:
+        fig = Figlet(font=font)
+        print(fig.renderText(text))
+    else:
+        # classic array-based rendering
+        lines = [""] * 6
+        for i in range(6):
+            for letter in text:
+                if letter in letter_map:
+                    lines[i] += letter_map[letter][i]
+            print(lines[i])
 
 def typefile(v):
     print(f"File valid {v}")
@@ -162,7 +176,7 @@ def pdatcolor(value):
     
 function_map = {
     "typefile": typefile,
-    "header": header,
+    "header": legacyheader,
     "textblock": textblock,
     "empty": empty,
     "color": pdatcolor
