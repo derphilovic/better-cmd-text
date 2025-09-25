@@ -5,8 +5,9 @@ from .core import (
     color,
     backgroundcolor as background,
     allcolor as bothcolors,
-    realrgbcolor as rgbcolor  # shorter, user-friendly name
+    realrgbcolor as rgbcolor,  # shorter, user-friendly name
+    center
 )
 
 from . import cursor
-__all__ = ["beautify", "header", "empty", "color", "background", "bothcolors", "rgbcolor", "cursor"]
+__all__ = ["beautify", "header", "empty", "color", "background", "bothcolors", "rgbcolor", "cursor", "center"]

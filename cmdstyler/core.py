@@ -1,6 +1,7 @@
 from sty import fg, bg, ef, rs
 import inspect
 from pyfiglet import Figlet
+import os
 global lines
 lines = ["","","","","",""]
 editedLine = 0
@@ -89,6 +90,17 @@ letter_map = {
     "0": a0, "1": a1, "2": a2, "3": a3, "4": a4, "5": a5, "6": a6, "7": a7, "8": a8, "9": a9
 }
 
+def center(text: str, width: int = None):
+    """
+    Print text centered in the terminal or within a given width.
+    """
+    txtlen = len(text)
+    if width is None:
+        ts = os.get_terminal_size()
+        width = ts.columns
+    pad = max((width - txtlen) // 2, 0)
+    print(" " * pad + text)
+
 def hex_to_rgb(hex_color: str):
     hex_color = hex_color.lstrip('#')
     if len(hex_color) != 6:
@@ -173,7 +185,7 @@ def pdatcolor(value):
         print(fg.red + "Unsupported color format!" + rs.fg)
         return
     print(v)
-    
+
 function_map = {
     "typefile": typefile,
     "header": legacyheader,
