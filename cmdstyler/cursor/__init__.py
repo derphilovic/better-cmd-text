@@ -52,9 +52,18 @@ def clear_line():
     """Clear the entire current line (leave cursor in same column)."""
     print("\033[2K", end="")
 
-def clear_screen():
-    """Completely clear screen and move cursor to top-left (works on modern terminals)."""
-    print("\033[2J\033[H", end="")
+def clear(mode="ansi"):
+    """
+    Clear the terminal screen.
+
+    mode = "ansi" (default) -> fast, works on modern terminals
+    mode = "system"         -> uses cls/clear for legacy support
+    """
+    if mode == "ansi":
+        print("\033[2J\033[H", end="")
+    else:
+        import os, platform
+        os.system("cls" if platform.system() == "Windows" else "clear")
 
 def save():
     """Save current cursor position."""

@@ -5,16 +5,16 @@ Supports `.pdat` files for larger projects to keep your code clean.
 
 ## ✨ Features
 
-- ASCII art headers
+- ASCII art headers (based on figlet)
 - 8-bit text coloring
 - Empty line spacing
 - `.pdat` file support (optional)
 - Background colors
 - 24-bit (truecolor) support
+- cursor control
 
 Planned:
 
-- Easier custom header fonts
 - Progress bars
 - Centered text
 
@@ -31,8 +31,8 @@ How to use cmdstyler:
 ```python
 import cmdstyler as cs
 
-# Print a header
-cs.header("Hello World")
+# Print a header, you can specify any figlet font
+cs.header("Hello World", "slant")
 
 # Add empty lines
 cs.empty(2)
@@ -52,6 +52,34 @@ cs.bothcolors(161, 19, "I am a red text on a blue background!")
 
 # Load from a .pdat file
 cs.beautify("example.pdat")
+
+#cs.cursor
+#Cursor functions
+
+# Clears this line
+cs.cursor.clear_line()      
+
+# Clears the screen
+cs.cursor.clear()
+
+# Hides/shows the cursor
+cs.cursor.hide()
+cs.cursor.show()
+
+# Saves loads cursor position
+cs.cursor.save()
+cs.cursor.restore()
+
+# Moves the cursor
+# Relative movement
+cs.cursor.moveby(x, y) #moves the cursor in the x or y direction
+cs.cursor.up(y)
+cs.cursor.down(y)
+cs.cursor.forward(x)
+cs.cursor.back(x)
+
+#movement from (0, 0)
+cs.cursor.move(x, y)
 ```
 
 ### PDAT file syntax
