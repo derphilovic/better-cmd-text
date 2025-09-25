@@ -101,6 +101,22 @@ def center(text: str, width: int = None):
     pad = max((width - txtlen) // 2, 0)
     print(" " * pad + text)
 
+def divider(char:str = "─", width: int = None):
+    """
+    Print a horizontal divider line across the terminal.
+    """
+    if width is None:
+        try:
+            ts = os.get_terminal_size()
+            width = ts.columns
+        except OSError:
+            width = 80
+    print(char * width)
+
+def bold(text: str):
+    text = ef.bold + text + rs.bold_dim
+    print(text)
+
 def hex_to_rgb(hex_color: str):
     hex_color = hex_color.lstrip('#')
     if len(hex_color) != 6:
