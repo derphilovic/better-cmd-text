@@ -114,6 +114,9 @@ def divider(char:str = "─", width: int = None):
     print(char * width)
 
 def bold(text: str):
+    """
+    Print bold text.
+    """
     text = ef.bold + text + rs.bold_dim
     print(text)
 
@@ -174,7 +177,7 @@ def allcolor(fgcol, bgcol, txt):
     print(v) 
 
 
-def realrgbcolor(color, text: str):
+def realrgbcolor(color, text: str, end: str = None):
     if isinstance(color, str):  # hex code
         rgb = hex_to_rgb(color)
         v = fg(*rgb) + text + rs.fg
@@ -182,7 +185,10 @@ def realrgbcolor(color, text: str):
         v = fg(*color) + text + rs.fg
     else:
         raise TypeError("Color must be a hex string or RGB tuple")
-    print(v)
+    if end == None:
+        print(v)
+    else:
+        print(v, end=end)
 
 def pdatcolor(value):
     col, txt = value.split(';', 1)

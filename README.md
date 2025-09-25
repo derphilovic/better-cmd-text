@@ -12,11 +12,12 @@ Supports `.pdat` files for larger projects to keep your code clean.
 - Background colors
 - 24-bit (truecolor) support
 - cursor control
+- Centered text
 
 Planned:
 
 - Progress bars
-- Centered text
+- layout control
 
 ## 📦 Installation
 
@@ -33,6 +34,9 @@ import cmdstyler as cs
 
 # Print a header, you can specify any figlet font
 cs.header("Hello World", "slant")
+
+# Print a centered text
+cs.center("I am centered!")
 
 # Add empty lines
 cs.empty(2)
