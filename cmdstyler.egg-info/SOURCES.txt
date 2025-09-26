@@ -9,3 +9,4 @@ cmdstyler.egg-info/dependency_links.txt
 cmdstyler.egg-info/requires.txt
 cmdstyler.egg-info/top_level.txt
 cmdstyler/cursor/__init__.py
+cmdstyler/text/__init__.py

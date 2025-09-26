@@ -7,9 +7,9 @@ from .core import (
     allcolor as bothcolors,
     realrgbcolor as rgbcolor,  # shorter, user-friendly name
     center,
-    divider,
-    bold
+    divider
 )
 
 from . import cursor
-__all__ = ["beautify", "header", "empty", "color", "background", "bothcolors", "rgbcolor", "cursor", "center", "divider", "bold"]
+from . import text
+__all__ = ["beautify", "header", "empty", "color", "background", "bothcolors", "rgbcolor", "cursor", "center", "divider", "bold", "text"]
