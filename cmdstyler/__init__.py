@@ -12,4 +12,5 @@ from .core import (
 
 from . import cursor
 from . import text
-__all__ = ["beautify", "header", "empty", "color", "background", "bothcolors", "rgbcolor", "cursor", "center", "divider", "bold", "text"]
+from . import display
+__all__ = ["beautify", "header", "empty", "color", "background", "bothcolors", "rgbcolor", "cursor", "center", "divider", "bold", "text", "display"]
